@@ -34,31 +34,19 @@ class Deck {
 			cardsWrapper.append(cardElement)
 		})
 	}
+
+	shuffle() {
+		for (let i = this.cards.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * i)
+			const temp = this.cards[i]
+			this.cards[i] = this.cards[j]
+			this.cards[j] = temp
+		}
+		console.log(this.cards)
+	}
 }
 
 const deck = new Deck()
-
-function createCards() {
-	const cards = []
-	// Create an array with objects containing the value and the suit of each card
-	for (let i = 1; i <= 13; i += 1) {
-		const cardObject = {
-			value: i,
-			suit
-		}
-		cards.push(cardObject)
-	}
-
-	// For each dataObject, create a new card and append it to the DOM
-	cards.forEach((card, i) => {
-		const positionFromLeft = i * 15
-		const cardElement = document.createElement('div')
-		cardElement.setAttribute('data-value', card.value)
-		cardElement.classList.add('card', `${card.suit}-${card.value}`)
-		cardElement.style.left = `${positionFromLeft}px`
-		cardsWrapper.append(cardElement)
-	})
-}
 
 // Function to clear out the initial button and create new buttons to play the game.
 function createButtons() {
@@ -70,6 +58,7 @@ function createButtons() {
 function startGame() {
 	createButtons()
 	deck.displayCards()
+	deck.shuffle()
 }
 
 document.getElementById('start-game').addEventListener('click', startGame)
