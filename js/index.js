@@ -26,7 +26,7 @@ class Deck {
 
 	displayCards() {
 		this.cards.forEach((card, i) => {
-			const positionFromLeft = i * 22
+			const positionFromLeft = i * 25
 			const cardElement = document.createElement('div')
 			cardElement.setAttribute('data-value', card.value)
 			cardElement.classList.add('card', `${card.suit}-${card.value}`)
