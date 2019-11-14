@@ -1,4 +1,3 @@
-const suit = 'hearts'
 const cardsWrapper = document.querySelector('.cards-wrapper')
 
 // decided to use constructor functions with methods on the deck itself like deck.shuffle(), deck.show(), etc
@@ -24,7 +23,7 @@ class Deck {
 		}, [])
 	}
 
-	displayCards() {
+	createCards() {
 		this.cards.forEach((card, i) => {
 			const positionFromLeft = i * 25
 			const cardElement = document.createElement('div')
@@ -35,6 +34,10 @@ class Deck {
 		})
 	}
 
+	toggleShow() {
+		cardsWrapper.classList.toggle('hidden')
+	}
+
 	shuffle() {
 		for (let i = this.cards.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * i)
@@ -42,7 +45,6 @@ class Deck {
 			this.cards[i] = this.cards[j]
 			this.cards[j] = temp
 		}
-		console.log(this.cards)
 	}
 }
 
@@ -57,8 +59,9 @@ function createButtons() {
 // and appending the buttons and all the cards to the DOM
 function startGame() {
 	createButtons()
-	deck.displayCards()
+	deck.createCards()
 	deck.shuffle()
+	deck.toggleShow()
 }
 
 document.getElementById('start-game').addEventListener('click', startGame)
