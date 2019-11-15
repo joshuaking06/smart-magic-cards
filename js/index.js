@@ -3,7 +3,7 @@ const btnWrapper = document.querySelector('.btn-wrapper')
 const startBtn = document.getElementById('start-game')
 const btns = document.querySelectorAll('.btn')
 
-// decided to use constructor functions with methods on the deck itself like deck.shuffle(), deck.show(), etc
+// I decided to use constructor functions with methods on the deck itself like deck.shuffle(), deck.show(), etc
 // no particular reason for doing it this way, it just makes the most sense to me, and I wanted to try to
 // do it my own way make the code my own, so you could maybe see more of how I approached the problem
 
