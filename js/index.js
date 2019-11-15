@@ -35,9 +35,11 @@ class Deck {
 
 	displayCards() {
 		this.cards.forEach((card, i) => {
+			// changed to 25 to add more visibility to the cards
 			const positionFromLeft = i * 25
 			const cardElement = document.createElement('div')
 			cardElement.setAttribute('data-value', card.value)
+			// to avoid having individual classes for each card, setting the background with javascript
 			cardElement.style.backgroundImage = `url('./assets/cards/${card.suit}-${card.value}.svg')`
 			cardElement.classList.add('card')
 			cardElement.style.left = `${positionFromLeft}px`
